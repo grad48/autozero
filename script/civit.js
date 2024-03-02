@@ -1017,11 +1017,11 @@ const nsfwWords = ['2g1c', 'naked', 'nude', 'furry', '2 girls 1 cup', 'acrotomop
 
 
 module.exports.config = {
-		name: "civit",
+		name: "تخيل",
 		version: "1.0",
 		credits: "Cliff",
 		role: 0,
-		description: "Displays the uptime of the bot",
+		description: "تتحت تعريب,
 		aliases: ["civ"],
 		usages:"civit [prompt]:[model number] -- [ratio]",
 		hasPrefix: false,
