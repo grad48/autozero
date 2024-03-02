@@ -2,11 +2,11 @@ const os = require('os');
 const pidusage = require('pidusage');
 
 module.exports.config = {
-		name: "uptime",
+		name: "وقت",
 		version: "1.0.2",
 		role: 0,
 		credits: "cliff",
-		description: "uptime",
+		description: "وقت تشغيل",
 		hasPrefix: false,
 		cooldowns: 5,
 		aliases: ["up"]
@@ -43,7 +43,7 @@ module.exports.run = async ({ api, event }) => {
 		};
 
 		const timeStart = Date.now();
-		const returnResult = `BOT has been working for ${hours} hour(s) ${minutes} minute(s) ${seconds} second(s).\n\n❖ Cpu usage: ${usage.cpu.toFixed(1)}%\n❖ RAM usage: ${byte2mb(usage.memory)}\n❖ Cores: ${os.cpus().length}\n❖ Ping: ${Date.now() - timeStart}ms\n❖ Operating System Platform: ${osInfo.platform}\n❖ System CPU Architecture: ${osInfo.architecture}`;
+		const returnResult = `لقد كان BOT يعمل من أجل ${hours} ساعه(s) ${minutes} دقيقه(s) ${seconds} ثانيه(s).\n\n❖ Cpu: ${usage.cpu.toFixed(1)}%\n❖ RAM: ${byte2mb(usage.memory)}\n❖ Cores: ${os.cpus().length}\n❖ Ping: ${Date.now() - timeStart}ms\n❖ Operating System Platform: ${osInfo.platform}\n❖ System CPU Architecture: ${osInfo.architecture}`;
 
 		return api.sendMessage(returnResult, event.threadID, event.messageID);
 };
