@@ -1,10 +1,10 @@
 module.exports.config = {
-	name: "adduser",
+	name: "اضف",
 	version: "1.0.1",
 	role: 0,
 	aliases: ["add"],
 	credits: "Yan Maglinte",
-	description: "Add user to group by id",
+	description: "إضافة مستخدم إلى المجموعة حسب المعرف",
 	cooldown: 0,
 };
 
@@ -14,7 +14,7 @@ module.exports.run = async function ({ api, event, args }) {
 	const out = msg => api.sendMessage(msg, threadID, messageID);
 	var { participantIDs, approvalMode, adminIDs } = await api.getThreadInfo(threadID);
 	var participantIDs = participantIDs.map(e => parseInt(e));
-	if (!args[0]) return out("Please enter an id/link profile user to add.");
+	if (!args[0]) return out("الرجاء إدخال معرف/رابط مستخدم الملف الشخصي لإضافته.");
 	if (!isNaN(args[0])) return adduser(args[0], undefined);
 	else {
 		try {
@@ -41,7 +41,7 @@ module.exports.run = async function ({ api, event, args }) {
 				return out(`Can't add ${name ? name : "user"} in group.`);
 			}
 			if (approvalMode === true && !admins.includes(botID)) return out(`Added ${name ? name : "member"} to the approved list !`);
-			else return out(`Added ${name ? name : "member"} to the group !`)
+			else return out(`Added ${name ? name : "member"} to the group !`)ا
 		}
 	}
 }
