@@ -1,6 +1,6 @@
 const path = require('path');
 module.exports.config = {
-	name: "music",
+	name: "اغاني",
 	version: "1.0.0",
 	credits: "cliff",
 	role: 0,
@@ -19,14 +19,14 @@ module.exports.run = async function({
 	const yts = require("yt-search");
 	const musicName = args.join(' ');
 	if (!musicName) {
-		api.sendMessage(`To get started, type music and the title of the song you want.`, event.threadID, event.messageID);
+		api.sendMessage(`للبدء، اكتب الموسيقى وعنوان الأغنية التي تريدها.`, event.threadID, event.messageID);
 		return;
 	}
 	try {
 		api.sendMessage(`Searching for "${musicName}"...`, event.threadID, event.messageID);
 		const searchResults = await yts(musicName);
 		if (!searchResults.videos.length) {
-			return api.sendMessage("Can't find the search.", event.threadID, event.messageID);
+			return api.sendMessage("لا يمكن العثور على البحث.", event.threadID, event.messageID);
 		} else {
 			const music = searchResults.videos[0];
 			const musicUrl = music.url;
@@ -42,7 +42,7 @@ module.exports.run = async function({
 			stream.on('end', () => {
 				if (fs.statSync(filePath).size > 26214400) {
 					fs.unlinkSync(filePath);
-					return api.sendMessage('The file could not be sent because it is larger than 25MB.', event.threadID);
+					return api.sendMessage('تعذر إرسال الملف لأن حجمه أكبر من 25 ميغابايت.', event.threadID);
 				}
 				const message = {
 					body: `${music.title}`,
@@ -54,6 +54,6 @@ module.exports.run = async function({
 			});
 		}
 	} catch (error) {
-		api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
+		api.sendMessage('حدث خطأ أثناء معالجة طلبك.', event.threadID, event.messageID);
 	}
 };
