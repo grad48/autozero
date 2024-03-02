@@ -1,10 +1,10 @@
 module.exports.config = {
-	name: 'help',
+	name: 'اوامر',
 	version: '1.0.0',
 	role: 0,
 	hasPrefix: false,
 	aliases: ['help'],
-	description: "Beginner's guide",
+	description: "يريك اوامر",
 	usage: "Help [page] or [command]",
 	credits: 'Develeoper',
 };
@@ -34,7 +34,7 @@ module.exports.run = async function({
 			eventCommands.forEach((eventCommand, index) => {
 				helpMessage += `╭─────────────────╮\n |\t『 ${index + 1}.』  ${prefix}${eventCommand}\n╰─────────────────╯ \n`;
 			});
-			helpMessage += `\nPage ${page}/${Math.ceil(commands.length / pages)}. To view the next page, type '${prefix}help page number'. To view information about a specific command, type '${prefix}help command name'.`;
+			helpMessage += `\nPage ${page}/${Math.ceil(commands.length / pages)}. لعرض الصفحة التالية، اكتب  '${prefix}اوامر وا اسم امر'. لعرض معلومات حول أمر معين، اكتب '${prefix}اسم أمر المساعدة'.`;
 			api.sendMessage(helpMessage, event.threadID, event.messageID);
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
