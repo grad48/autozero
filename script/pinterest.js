@@ -2,11 +2,11 @@ const axios = require('axios');
 const fs = require('fs');
 const cheerio = require('cheerio');
 module.exports.config = {
-  name: "pinterest",
+  name: "بنتريست",
   version: "1.0.0",
   role: 0,
   hasPrefix: true,
-  description: "Search for images on Pinterest.",
+  description: "البحث عن الصور على موقع Pinterest.",
   usages: "pinterest [query] - [amount]",
   credits: "Developer",
 };
@@ -45,7 +45,7 @@ module.exports.run = async function({
   const time = new Date();
   const timestamp = time.toISOString().replace(/[:.]/g, "-");
   if (!input) {
-    api.sendMessage(`To get started, type Pinterest followed by the name of the image you are looking for, and the expected number of images.\n\nExample:\n\n${prefix}soyeon - 10`, event.threadID, event.messageID);
+    api.sendMessage(`للبدء، اكتب Pinterest متبوعًا باسم الصورة التي تبحث عنها، وعدد الصور المتوقع.\n\nExample:\n\n${prefix}soyeon - 10`, event.threadID, event.messageID);
   } else {
     try {
       const key = input.substr(0, input.indexOf('-'));
