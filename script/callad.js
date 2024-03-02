@@ -1,10 +1,10 @@
 module.exports.config = {
-	name: "callad",
+	name: "اتصال",
 	version: "1.0.1",
 	hasPermssion: 0,
 	credits: "NTKhang, ManhG Fix Get",
-	description: "Report bot's error to admin or comment",
-	usages: "[Error encountered or comments]",
+	description: "الإبلاغ عن خطأ الروبوت إلى المشرف أو التعليق ",
+	usages: "[حدث خطأ أو تعليقات]",
 	cooldown: 5,
 	hasPrefix: false,
 };
@@ -33,7 +33,7 @@ module.exports.handleReply = async function({ api: e, args: n, event: a, Users: 
 			break;
 		case "calladmin":
 			e.sendMessage({
-				body: `📌Feedback from admin ${i} to you:\n--------\n${a.body}\n--------\n»💬Reply to this message to continue sending reports to admin`,
+				body: `📌ردود الفعل من المشرف ${i} to you:\n--------\n${a.body}\n--------\n»💬قم بالرد على هذه الرسالة لمواصلة إرسال التقارير إلى المشرف`,
 				mentions: [{
 					tag: i,
 					id: a.senderID
@@ -59,7 +59,7 @@ module.exports.run = async function({ api: e, event: n, args: a, Users: s, Threa
 		var admins = this.config.ADMINBOT; // Assuming ADMINBOT is defined elsewhere
 		for (let admin of admins) {
 			let threadName = threadInfo.threadName;
-			e.sendMessage(`👤Report from: ${i}\n👨‍👩‍👧‍👧Box: ${threadName}\n🔰ID Box: ${d}\n🔷ID Use: ${t}\n-----------------\n⚠️Error: ${a.join(" ")}\n-----------------\nTime: ${l}`, admin, ((e, a) => global.client.handleReply.push({
+			e.sendMessage(`👤تقرير من: ${i}\n👨‍👩‍👧‍👧مجموعه: ${threadName}\n🔰معرف مجموعه: ${d}\n🔷معرف شخص: ${t}\n-----------------\n⚠️عطل: ${a.join(" ")}\n-----------------\nTime: ${l}`, admin, ((e, a) => global.client.handleReply.push({
 				name: this.config.name,
 				messageID: a.messageID,
 				credits: n.senderID,
