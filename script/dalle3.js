@@ -3,13 +3,13 @@ const fs = require('fs-extra');
 const path = require('path');
 
 module.exports.config = {
-		name: "dalle3",
+		name: "ارسم2",
 		aliases: ["dalle3"],
 		version: "1.0",
 		credits: "JARiF",
 		cooldown: 15,
 		role: 0,
-		description: "Generate images by Dalle3",
+		description: "دالي3",
 		hasPrefix: false,
 };
 
@@ -49,13 +49,13 @@ module.exports.run = async function ({ api, message, args }) {
 						await api.unsendMessage(w.messageID);
 
 						await message.reply({
-								body: `✅ | Generated`,
+								body: `✅ | تم`,
 								attachment: imgData
 						});
 				} else {
 						throw new Error("Non-200 status code received");
 				}
 		} catch (error) {
-				return message.reply("Redirect failed! Most probably bad prompt.");
+				return message.reply("فشلت عملية إعادة التوجيه! على الأرجح موجه سيئة.");
 		}
 };
