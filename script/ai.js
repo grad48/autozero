@@ -5,7 +5,7 @@ module.exports.config = {
 	version: "1.0.0",
 	hasPermission: 0,
 	credits: "api by jerome",//api by jonell
-	description: "Gpt architecture",
+	description: "ذكاء اصطناعي ",
 	usePrefix: false,
 	commandCategory: "GPT4",
 	cooldowns: 5,
@@ -22,7 +22,7 @@ module.exports.run = async function ({ api, event, args }) {
 		}
 
 		if (!prompt) {
-			return api.sendMessage('Please provide a prompt to generate a text response.\nExample: GPT4 What is the meaning of life?', event.threadID, messageID);
+			return api.sendMessage('يرجى تقديم مطالبة لإنشاء استجابة نصية.\nمثال: GPT4 ما معنى الحياة?', event.threadID, messageID);
 		}
 
 		const gpt4_api = `http://fi3.bot-hosting.net:20265/api/gpt?question=${encodeURIComponent(prompt)}`;
@@ -34,7 +34,7 @@ module.exports.run = async function ({ api, event, args }) {
 			api.sendMessage({ body: generatedText, attachment: null }, event.threadID, messageID);
 		} else {
 			console.error('API response did not contain expected data:', response.data);
-			api.sendMessage(`❌ An error occurred while generating the text response. Please try again later. Response data: ${JSON.stringify(response.data)}`, event.threadID, messageID);
+			api.sendMessage(`❌ حدث خطأ أثناء إنشاء الاستجابة النصية. الرجاء معاودة المحاولة في وقت لاحق. بيانات الاستجابة: ${JSON.stringify(response.data)}`, event.threadID, messageID);
 		}
 	} catch (error) {
 		console.error('Error:', error);
