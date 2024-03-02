@@ -5,7 +5,7 @@ const KievRPSSecAuth = "FACSBBRaTOJILtFsMkpLVWSG6AN6C/svRwNmAAAEgAAACGr/CZI3/EJf
 const _U = "1MBj2g3P1QxOWMjpdQdDkXVQAj512VfPb--wvpwcUrWPxTvNE4XDzTkwncFg_RCz_jidqLFhFaB750ZucXxRNIWx3rfIOYnLnxqgQEV6ec899MmeQnFtpGFmbhLDyLm3hw0bg_rkwHXTzDAQhmPy_Yvn_laB0vDCF7juex6l10yHB1cYUcOWLkXQ9p7p8w11_mVdpBdKMAzHNHxxUBmtsGg0YTpBdzgoSDGZVWACF_Z8";
 
 module.exports.config = {
-	name: "dalle",
+	name: "ارسم",
 	version: "1.0",
 	role: 0,
 	credits: "cliff",//api by Samir
@@ -27,7 +27,7 @@ module. exports. run = async function ({ api, event, args }) {
 		const data = res.data.results.images;
 
 		if (!data || data.length === 0) {
-			api.sendMessage("No images found for the provided query.", event.threadID, event.messageID);
+			api.sendMessage("لم يتم العثور على صور للاستعلام المقدم.", event.threadID, event.messageID);
 			return;
 		}
 
@@ -41,12 +41,12 @@ module. exports. run = async function ({ api, event, args }) {
 
 		await api.sendMessage({
 			attachment: imgData,
-			body: `Here's your generated image`
+			body: `ها هي صورتك التي تم إنشاؤها`
 		}, event.threadID, event.messageID);
 
 	} catch (error) {
 		console.error(error);
-		api.sendMessage("cookie of the command. Is expired", event.threadID, event.messageID);
+		api.sendMessage("ملف تعريف الارتباط للأمر. منتهي الصلاحية", event.threadID, event.messageID);
 	} finally {
 		await fs.remove(path.join(__dirname, 'cache'));
 	}
