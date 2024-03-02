@@ -2,7 +2,7 @@ const fs = require('fs-extra');
 const pathFile = __dirname + '/cache/autoseen.txt';
 
 module.exports.config = {
-	name: "autoseen",
+	name: "مشاهده",
 	version: "1.0.0",
 	role: 2,
 	credits: "Yan Maglinte",
@@ -25,7 +25,7 @@ module.exports. run = async ({ api, event, args }) => {
 	 try {
 		 if (args[0] == 'on') {
 			 fs.writeFileSync(pathFile, 'true');
-			 api.sendMessage('The autoseen function is now enabled for new messages.', event.threadID, event.messageID);
+			 api.sendMessage('تم الآن تمكين وظيفة المعاينة التلقائية للرسائل الجديدة.', event.threadID, event.messageID);
 		 } else if (args[0] == 'off') {
 			 fs.writeFileSync(pathFile, 'false');
 			 api.sendMessage('The autoseen function has been disabled for new messages.', event.threadID, event.messageID);
