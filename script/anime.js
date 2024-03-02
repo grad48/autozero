@@ -1,12 +1,12 @@
 const axios = require('axios');
 const fs = require('fs');
 module.exports.config = {
-  name: 'anime',
+  name: 'انمي',
   version: '1.0.0',
   role: 0,
   hasPrefix: true,
   aliases: ['hanime'],
-  description: 'Get a random anime image',
+  description: 'الحصول على صورة أنيمي عشوائية',
   usage: "Anime [category-type]",
   credits: 'Develeoper',
   cooldown: 5,
@@ -42,6 +42,6 @@ module.exports.run = async function({
       }, event.threadID, () => fs.unlinkSync(pathPic), event.messageID);
     }
   } catch (error) {
-    api.sendMessage(`Error in the anime command: ${error.message}`);
+    api.sendMessage(`خطأ في أمر الأنمي: ${error.message}`);
   }
 };
