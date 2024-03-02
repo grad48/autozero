@@ -1,9 +1,9 @@
 module.exports.config = {
-	name: "kick",
+	name: "طرد",
 	version: "0.0.1",
 	role: 2,
 	credits: "Cliff",//do not change credits
-	description: "kick @tag multiple",
+	description: "ركلة @tag متعددة",
 	usages: "kick @mention",
 	hasPrefix: false,
 	cooldown: 5,
@@ -70,12 +70,12 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
 		if(!args[1]) {
 			var msg = "";
 			var mywarn = bans.warns[threadID][senderID];
-			if(!mywarn) return api.sendMessage('✅You have never been warned', threadID, messageID);
+			if(!mywarn) return api.sendMessage('✅لم يتم تحذيرك قط', threadID, messageID);
 			var num = 1;
 			for(let reasonwarn of mywarn) {
 				msg += `reasonwarn\n`;
 			}
-			api.sendMessage(`❎You have been warned for the reason : ${msg}`, threadID, messageID);
+			api.sendMessage(`❎لقد تم تحذيرك لهذا السبب : ${msg}`, threadID, messageID);
 		}
 		else if(Object.keys(event.mentions).length != 0) {
 			var message = "";
@@ -107,7 +107,7 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
 				}
 				allwarn += `${name} : ${msg}\n`;
 			}
-			allwarn == "" ? api.sendMessage("✅No one in your group has been warned yet", threadID, messageID) : api.sendMessage("List of members who have been warned:\n"+allwarn, threadID, messageID);
+			allwarn == "" ? api.sendMessage("✅لم يتم تحذير أي شخص في مجموعتك حتى الآن", threadID, messageID) : api.sendMessage("List of members who have been warned:\n"+allwarn, threadID, messageID);
 		}
 	}
 
@@ -118,7 +118,7 @@ module.exports.run = async function({ api, args, Users, event, Threads, utils, c
 
 		if(!id) return api.sendMessage("❎Need to enter the id of the person to be removed from the banned list of the group", threadID, messageID);
 		bans.banned;
-		if(!mybox.includes(id)) return api.sendMessage("✅This person hasn't been banned from your group yet", threadID, messageID);
+		if(!mybox.includes(id)) return api.sendMessage("✅لم يتم حظر هذا الشخص من مجموعتك بعد", threadID, messageID);
 			api.sendMessage(`┏•━•━•━ ◎ ━•━•━•┓\n𝐒𝐔𝐂𝐂𝐄𝐒𝐒𝐅𝐔𝐋𝐋 𝐑𝐄𝐌𝐎𝐕𝐄𝐃 ${id} \n┗•━•━•━ ◎ ━•━•━•┛  `, threadID, messageID);
 			mybox.splice(mybox.indexOf(id), 1);
 			delete bans.warns[threadID][id]
