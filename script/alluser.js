@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "alluser",
+	name: "جميع_المستخدمين",
 	credits: "cliff",
 	version: '1.0.0',
 	role: 0,
